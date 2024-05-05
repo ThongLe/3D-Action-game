@@ -1,3 +1,29 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c48d1effe603a18739519053e7bbd5a1e44f254a94ea659484f5e4a619a4f4ae
-size 527
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Door : MonoBehaviour {
+	public Animator anim;
+
+	// Use this for initialization
+	void Start () {
+		anim = GetComponent<Animator> ();
+	}
+
+	void OnTriggerEnter (Collider other) {
+		anim.SetBool ("DoorOpen", true);
+		anim.SetBool ("DoorClose", false);
+
+	}
+
+	void OnTriggerExit (Collider other) {
+		anim.SetBool ("DoorOpen", false);
+		anim.SetBool ("DoorClose", true);
+
+	}
+
+	// Update is called once per frame
+	void Update () {
+		
+	}
+}

@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:617ae3e09d8bfec85a3a696318db982ded7348e15c29e8022884a69637c3cfa6
-size 215
+fileFormatVersion: 2
+guid: 0edbfd697bd8266428ec1d0eddf36e5f
+labels:
+- Prop
+- Vehicle
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

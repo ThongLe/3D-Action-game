@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6dcab96615d92a109a38f7dced727a866219f3f6617bbf53f4f8bcdefbce3894
-size 214
+fileFormatVersion: 2
+guid: 4751505b5c956c442b19187f1b69b3e8
+labels:
+- Prop
+- Tavern
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

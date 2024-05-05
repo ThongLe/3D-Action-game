@@ -1,3 +1,32 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2ccea10352bbb9894d82e104bf94dab1969c32c8430aef6e3e8123910f738a39
-size 573
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class InteractableObject : MonoBehaviour
+{
+
+    public bool playerInRange;
+
+    public string ItemName;
+
+    public string GetItemName()
+    {
+        return ItemName;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = false;
+        }
+    }
+}

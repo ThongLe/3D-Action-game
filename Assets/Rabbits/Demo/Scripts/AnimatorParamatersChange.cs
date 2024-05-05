@@ -1,3 +1,44 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8515ebf2512c610c7bcb2d6e9213de9e2b3b507503de253f4512484132fb1206
-size 970
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace FiveRabbitsDemo
+{
+    public class AnimatorParamatersChange : MonoBehaviour
+    {
+
+        private string[] m_buttonNames = new string[] { "Idle", "Run", "Dead" };
+
+        private Animator m_animator;
+
+        // Use this for initialization
+        void Start()
+        {
+
+            m_animator = GetComponent<Animator>();
+
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
+
+        private void OnGUI()
+        {
+            GUI.BeginGroup(new Rect(0, 0, 150, 1000));
+
+            for (int i = 0; i < m_buttonNames.Length; i++)
+            {
+                if (GUILayout.Button(m_buttonNames[i], GUILayout.Width(150)))
+                {
+                    m_animator.SetInteger("AnimIndex", i);
+                    m_animator.SetTrigger("Next");
+                }
+            }
+
+            GUI.EndGroup();
+        }
+    }
+}
