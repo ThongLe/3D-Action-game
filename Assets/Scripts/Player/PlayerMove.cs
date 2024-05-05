@@ -112,9 +112,9 @@ public class PlayerMove : MonoBehaviour
         velocity = Vector3.Lerp(velocity, input, factor);
 
         var jumpInput = jumpAction.ReadValue<float>();
-        if (jumpInput > 0 && isGrounded)
+        if (jumpInput > 0)
         {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * (-9.81f * 2));
+            velocity.y += 1;
         }
 
         controller.Move(velocity * Time.deltaTime);
