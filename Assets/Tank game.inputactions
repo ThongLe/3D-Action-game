@@ -294,6 +294,17 @@
                 },
                 {
                     "name": "",
+                    "id": "16eee221-c092-40bf-8241-a9930cbdac3a",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "ToggleFlying",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "ff49e26e-bb44-4612-9692-c74b9a648082",
                     "path": "<Keyboard>/leftShift",
                     "interactions": "",

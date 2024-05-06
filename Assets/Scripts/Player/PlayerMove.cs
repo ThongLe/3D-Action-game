@@ -5,11 +5,12 @@ using UnityEngine.InputSystem;
 
 public class PlayerMove : MonoBehaviour
 {
+    Animator animator;
     public CharacterController controller;
 
     public float walkspeed = 10f;
     public float flyspeed = 20f;
-    public float jumpHeight = 3f;
+    public float jumpHeight = 8f;
     public float acceleration = 20f;
 
     public Transform groundCheck;
@@ -19,6 +20,7 @@ public class PlayerMove : MonoBehaviour
     Vector3 velocity;
 
     bool isGrounded;
+    public bool isWalking;
 
     PlayerInput playerInput;
     InputAction moveAction;
@@ -34,6 +36,7 @@ public class PlayerMove : MonoBehaviour
 
     void Awake()
     {
+        animator = GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
         playerInput = GetComponent<PlayerInput>();
         moveAction = playerInput.actions["move"];
@@ -46,10 +49,13 @@ public class PlayerMove : MonoBehaviour
         switch (state)
         {
             case State.Walking:
+                animator.SetBool("isFlying", false);
                 CheckGravity();
                 UpdateMovement();
                 break;
             case State.Flying:
+                animator.SetBool("isWalking", false);
+                animator.SetBool("isFlying", true);
                 UpdateMovementFly();
                 break;
         }
@@ -73,6 +79,17 @@ public class PlayerMove : MonoBehaviour
     Vector3 GetMovementInput(float speed, bool horizontal = true)
     {
         var moveInput = moveAction.ReadValue<Vector2>();
+        if (horizontal)
+        {
+            if ( moveInput.x != 0 || moveInput.y != 0)
+            {
+                animator.SetBool("isWalking", true);
+            }
+            else
+            {
+                animator.SetBool("isWalking", false);
+            }
+        }
 
         var input = new Vector3();
         input += transform.forward * moveInput.y;
