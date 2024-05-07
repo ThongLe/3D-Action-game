@@ -10,6 +10,7 @@ public class SoundManager : MonoBehaviour
     public AudioSource baka;
     //
     public AudioSource attack;
+    public AudioSource special;
     public AudioSource hurt;
     public AudioSource fly;
     public AudioSource bullet_sound;
