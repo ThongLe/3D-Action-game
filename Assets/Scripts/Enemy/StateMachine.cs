@@ -6,12 +6,10 @@ public class StateMachine : MonoBehaviour
 {
     // Start is called before the first frame update
     public BaseState activeState;
-    public PatrolState patrolState;
     public Animator animator;
     public void Initialize()
     {
-        patrolState = new PatrolState();
-        ChangeState(patrolState);
+        ChangeState(new PatrolState());
     }
     void Start()
     {
