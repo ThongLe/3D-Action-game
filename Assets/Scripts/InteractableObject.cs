@@ -23,7 +23,7 @@ public class InteractableObject : MonoBehaviour
             PlayerStatus.Instance.TakeDamage(DamageAmount);
 
             // Destroy the cube
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
 

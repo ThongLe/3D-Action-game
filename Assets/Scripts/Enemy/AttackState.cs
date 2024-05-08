@@ -32,9 +32,11 @@ public class AttackState : BaseState
             }
             if (moveTimer > Random.Range(3,7))
             {
-                enemy.Agent.SetDestination(enemy.transform.position + (Random.insideUnitSphere * 5));
+                //enemy.Agent.SetDestination(enemy.transform.position + (Random.insideUnitSphere * 5));
+                enemy.Agent.SetDestination(enemy.Player.transform.position);
                 moveTimer = 0;
             }
+            
             enemy.LastKnowPos = enemy.Player.transform.position;
         }
         else

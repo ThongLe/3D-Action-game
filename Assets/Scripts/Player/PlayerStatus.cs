@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerStatus : MonoBehaviour
 {
     public static PlayerStatus Instance { get; set; }
 
+    public GameObject player;
+
     public float currentHealth;
     public float maxHealth = 10f;
+    public float score;
 
     private SoundManager soundManager;
 
@@ -27,6 +31,7 @@ public class PlayerStatus : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+        score = 0;
     }
 
     public void TakeDamage(float amount)
@@ -35,8 +40,17 @@ public class PlayerStatus : MonoBehaviour
         soundManager.PlaySound(soundManager.hurt);
         if (currentHealth <= 0)
         {
-            
+            Destroy(player);
+            IEnumerator coRoutine = FreezeScreen(2f);
+            StartCoroutine(coRoutine);
+            Cursor.lockState = CursorLockMode.None;
+            SceneManager.LoadScene("Death");
         }
+    }
+
+    private IEnumerator FreezeScreen(float sec)
+    {
+        yield return new WaitForSeconds(2f);
     }
 
     public void Heal(float amount)
@@ -46,6 +60,11 @@ public class PlayerStatus : MonoBehaviour
 
         // Play heal sound
         soundManager.PlaySound(soundManager.healing);
+    }
+
+    public void ScoreUp()
+    {
+        score += 1;
     }
     void Update()
     {

@@ -30,6 +30,7 @@ public class SearchState : BaseState
             if (moveTimer > Random.Range(3, 7))
             {
                 enemy.Agent.SetDestination(enemy.transform.position + (Random.insideUnitSphere * 10));
+                //enemy.Agent.SetDestination(enemy.Player.transform.position);
                 moveTimer = 0;
             }
             if (searchTimer > 5)

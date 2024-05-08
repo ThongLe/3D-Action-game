@@ -39,6 +39,7 @@ public class PatrolState : BaseState
                 else
                     WaypointIndex = 0;
                 enemy.Agent.SetDestination(enemy.path.waypoints[WaypointIndex].position);
+                //enemy.Agent.SetDestination(enemy.Player.transform.position);
                 WaitTimer = 0;
             }
         }
