@@ -9,6 +9,8 @@ public class PlayerStatus : MonoBehaviour
     public float currentHealth;
     public float maxHealth = 10f;
 
+    private SoundManager soundManager;
+
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -19,6 +21,7 @@ public class PlayerStatus : MonoBehaviour
         {
             Instance = this;
         }
+        soundManager = SoundManager.Instance;
     }
 
     void Start()
@@ -26,6 +29,24 @@ public class PlayerStatus : MonoBehaviour
         currentHealth = maxHealth;
     }
 
+    public void TakeDamage(float amount)
+    {
+        currentHealth -= amount;
+        soundManager.PlaySound(soundManager.hurt);
+        if (currentHealth <= 0)
+        {
+            
+        }
+    }
+
+    public void Heal(float amount)
+    {
+        currentHealth += amount;
+        currentHealth = Mathf.Min(currentHealth, maxHealth); // Ensure health doesn't exceed maxHealth
+
+        // Play heal sound
+        soundManager.PlaySound(soundManager.healing);
+    }
     void Update()
     {
         

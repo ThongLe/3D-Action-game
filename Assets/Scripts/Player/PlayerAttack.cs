@@ -8,7 +8,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private Bullet bullet;
     [SerializeField] private Bullet special;
 
-    public float cooldown = 1.5f;
+    public float cooldown = 10f;
     public float special_cooldown = 50f;
     public float timer;
     public float special_timer;

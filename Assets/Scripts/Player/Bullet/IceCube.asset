@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5ba74524123b9e48be0d486d15bb465, type: 3}
   m_Name: IceCube
   m_EditorClassIdentifier: 
-  lifetime: 10
+  lifetime: 1
   speed: 70
   damage: 5
   radius: 1
