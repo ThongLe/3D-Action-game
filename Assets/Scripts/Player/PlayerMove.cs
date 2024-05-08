@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerMove : MonoBehaviour
 {
+    private SoundManager soundManager;
     Animator animator;
     public CharacterController controller;
 
@@ -42,6 +43,7 @@ public class PlayerMove : MonoBehaviour
         moveAction = playerInput.actions["move"];
         sprintAction = playerInput.actions["sprint"];
         jumpAction = playerInput.actions["jump"];
+        soundManager = SoundManager.Instance;
     }
 
     void Update()
@@ -133,12 +135,15 @@ public class PlayerMove : MonoBehaviour
         {
             velocity.y += 1;
         }
-
         controller.Move(velocity * Time.deltaTime);
     }
 
     void OnToggleFlying()
     {
         state = state == State.Flying ? State.Walking : State.Flying;
+        if (state == State.Flying)
+        {
+            soundManager.PlaySound(soundManager.fly);
+        }
     }
 }
