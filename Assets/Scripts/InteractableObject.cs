@@ -9,6 +9,7 @@ public class InteractableObject : MonoBehaviour
 
     public string ItemName;
 
+    public float DamageAmount = 1f;
     public string GetItemName()
     {
         return ItemName;
@@ -18,7 +19,11 @@ public class InteractableObject : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            playerInRange = true;
+            // Reduce player's health
+            PlayerStatus.Instance.TakeDamage(DamageAmount);
+
+            // Destroy the cube
+            Destroy(gameObject);
         }
     }
 

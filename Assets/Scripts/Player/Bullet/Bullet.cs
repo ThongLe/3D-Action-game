@@ -10,7 +10,7 @@ public class Bullet : MonoBehaviour
 
     SphereCollider sphereCollider;
     Rigidbody rb;
-
+    private SoundManager soundManager;
     // Start is called before the first frame update
     void Awake()
     {
@@ -22,6 +22,7 @@ public class Bullet : MonoBehaviour
         rb.isKinematic = true;
 
         Destroy(this.gameObject, newbullet.lifetime);
+        soundManager = SoundManager.Instance;
     }
 
     // Update is called once per frame
@@ -30,7 +31,7 @@ public class Bullet : MonoBehaviour
         if (newbullet.speed > 0)
         {
             transform.Translate(Vector3.forward * newbullet.speed * Time.deltaTime);
-
+            soundManager.PlaySound(soundManager.bullet_sound);
         }
     }
 
@@ -43,4 +44,5 @@ public class Bullet : MonoBehaviour
         }
         //Destroy(this.gameObject);
     }
+    
 }

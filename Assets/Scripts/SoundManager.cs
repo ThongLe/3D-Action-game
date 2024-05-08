@@ -16,7 +16,7 @@ public class SoundManager : MonoBehaviour
     public AudioSource bullet_sound;
     //enemy
     public AudioSource enemy_death;
-
+    public AudioSource healing;
     void Awake()
     {
         if (Instance != null && Instance != this)
