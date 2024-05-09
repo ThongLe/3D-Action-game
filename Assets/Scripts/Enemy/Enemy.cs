@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
     public string currentState;
 
     private Vector3 lastKnowPos;
+    public bool Poisoned = false;
     public Vector3 LastKnowPos { get => lastKnowPos; set => lastKnowPos = value; }
     public GameObject player;
     [Header("Sight Values")]
